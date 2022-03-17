@@ -1,13 +1,13 @@
 const express = require("express");
-const indexRouter = require("./routes");
+const postsRouter = require("./routes/posts");
 const db = require("./models");
 
 const app = express();
 
 app.use(express.json());
-app.use("/", indexRouter);
+app.use("/posts", postsRouter);
 
-db.Sequelize.sync().then(() => {
+db.sequelize.sync().then(() => {
   app.listen(5000, () => {
     console.log("listening on port 5000");
   });
