@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
   const post = req.body;
   console.log(post);
   await Posts.create(post);
-  res.send("post created successfully");
+  res.json(post);
 });
 
 module.exports = router;
